@@ -15,6 +15,8 @@ export interface ProductsI{
     productName: string;
     productPrice : number;
     productStock : number;
+    description :string;
+    specifications: string;      
     imageProduct : string;
     idCategory : number;
     //token: string;
