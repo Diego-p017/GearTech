@@ -1,0 +1,65 @@
+/* Nosotros */
+
+.body-nosotros{
+    background-color:var(--fondo);
+}
+.nosotros{
+    background-color: var(--primario);
+    margin-top: 8rem;
+    padding: 5rem 0;
+}
+.imagen-nosotros{
+    margin-bottom: 3rem;
+}
+@media (min-width:650px) {
+    .contenido-nosotros{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+    }
+    .imagen-nosotros{
+        flex-basis: calc(50% - 1rem) ;
+    }
+    .sobre-nosotros{
+        flex-basis: calc(40% - 1rem)
+    }
+}
+
+.sobre-nosotros h3{
+    color: var(--amarillo);
+    font-size: 3rem;
+    margin-bottom: 3rem!important;
+}
+.sobre-nosotros p{
+    color: var(--blanco)!important;
+}
+
+/* nosotros - mision*/
+
+.mision{
+    background-color: var(--amarillo);
+    padding: 5rem 0;
+    margin-bottom: 8rem;    
+}
+@media (min-width:650px) {
+    .contenido-mision{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+    }
+    .imagen-mision{
+        flex-basis: calc(50% - 1rem) ;
+    }
+    .sobre-mision{
+        flex-basis: calc(40% - 1rem)
+    }
+}
+
+.sobre-mision h3{
+    color: var(--blanco);
+    font-size: 3rem;
+    margin-bottom: 3rem!important;
+}
+.sobre-nosotros p{
+    color: var(--negro);
+}

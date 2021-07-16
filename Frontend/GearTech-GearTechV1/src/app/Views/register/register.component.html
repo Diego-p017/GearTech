@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+<body>
+  <div class="form-register">
+    <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+      <mat-card class="box">
+        <mat-card-header>
+          <mat-card-title>Registrarse</mat-card-title>
+        </mat-card-header>
+    
+        <form class="register-container" [formGroup]="registerForm" (ngSubmit)="postRegisterForm(registerForm.value)">
+    
+          <mat-card-content>
+              <div>
+              <mat-form-field fxFlex="90">
+                  <input matInput placeholder="Nombres" formControlName="firstName">                  
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field fxFlex="90">
+                  <input matInput placeholder="Apeliidos" formControlName="lastName">                  
+                </mat-form-field>
+              </div>
+              <div >            
+                  <mat-form-field  fxFlex="48">
+                      <input matInput placeholder="Email" formControlName="email">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="48" fxFlexOffset="4">
+                      <input matInput placeholder="Confirmed Email" formControlName="confirmedEmail">
+                    </mat-form-field>
+              </div>
+              <div>
+                  <mat-form-field fxFlex="90">
+                      <input matInput placeholder="Identifiaction" formControlName="documentNumber">
+                    </mat-form-field>
+              </div>
+              <div>
+                  <mat-form-field fxFlex="90">
+                      <input matInput placeholder="Phone" formControlName="phone">
+                    </mat-form-field>
+              </div>
+            <div>
+              <mat-form-field fxFlex="48">
+                  <input matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+                <mat-form-field fxFlex="48" fxFlexOffset="4">
+                  <input matInput placeholder="Confirmed Password" formControlName="confirmedPassword">
+                </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field fxFlex="48">
+                  <input matInput placeholder="Address" formControlName="address">
+                </mat-form-field>
+                <!-- <mat-form-field fxFlex="48">
+                  <input type="number" matInput placeholder="locationId" formControlName="locationId">
+                </mat-form-field> -->
+        
+                <mat-form-field fxFlex="48" fxFlexOffset="4">
+                  <mat-label>Location</mat-label>
+                  <mat-select formControlName="locationId">
+                    <mat-option [(value)]="location.cityId" *ngFor="let location of Location">{{location.cityName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div> 
+          </mat-card-content>        
+          <mat-card-actions>
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+              <button mat-fab color="warn" ><mat-icon>undo</mat-icon></button>
+              <button mat-stroked-button color="primary" fxFlex="48" type="submit">Register</button>
+              </div>            
+          </mat-card-actions>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</body>

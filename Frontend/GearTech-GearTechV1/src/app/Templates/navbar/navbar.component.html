@@ -1,0 +1,42 @@
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logotipo">
+        <a href="#Home" ><img  alt="logotipo" class="logo" src="assets/logotipo.png"></a>
+      </div>
+      <nav class="nav-bar">
+        <div class="nav-bar-content"> 
+          <a routerLink="/Dashboard">Inicio</a>
+          <a routerLink="/Products">Productos</a>
+          <a routerLink="/Nosotros">Nosotros</a>
+        </div>
+      </nav>
+      <div>
+        <button mat-raised-button [matMenuTriggerFor]="menu">
+          <span  style="margin-right: 10px" matBadgeOverlap="false" matBadgePosition="below after">Carrito</span>
+          <mat-menu #menu="matMenu">
+              <button mat-menu-item></button>
+              <button mat-menu-item><strong></strong></button>
+              <!-- <a *ngIf="productos.length > 0" mat-menu-item routerLink="/terminar_compra">
+                <mat-icon>shopping_cart</mat-icon>
+                Terminar compra</a> -->
+          </mat-menu>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menuUser">
+          <mat-icon>person</mat-icon>
+        </button>
+        <mat-menu #menuUser="matMenu">
+          <button mat-menu-item routerLink="/SignIn">
+            <mat-icon>login</mat-icon>
+            <span>login</span>
+          </button>
+          <button mat-menu-item >
+            <mat-icon>logout</mat-icon>
+            <span>Logut</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+  </header>
+  
+</body>

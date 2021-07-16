@@ -1,0 +1,10 @@
+::ng-deep .warning{
+    background: 'yellow';
+}
+.form-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem;
+    background-image: url();
+}

@@ -1,0 +1,92 @@
+.contP{
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.logo{
+    width: 15rem;
+}
+
+.bar{
+    background: rgb(36, 36, 43);
+    flex: 0 1 auto;
+}
+.bar a {
+    margin: 0;
+    margin-right: 8rem;
+    font-weight: 700;
+}
+
+.contenido {
+    flex: 1 1 auto;
+  }
+  
+.padding-10 {
+    padding: 10px;
+  }
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox.
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+
+.navbar a{
+    color: var(--blanco);
+    margin-right: 8rem;
+    font-weight: 700;
+}
+.navbar a:last-of-type{
+    margin: 0;
+}
+.bar a:hover{
+    color: orange;
+}
+
+/* estilos actualizados*/
+
+/* header */
+.header{
+    background-color: var(--primario);
+    padding: 2rem;
+}
+.header-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.nav-bar-content{
+    margin-top: 3rem;
+}
+.nav-bar-content a{
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    margin-right: 3rem;
+    transition: 500ms;
+}
+.nav-bar-content a:last-of-type{
+    margin-right: 0;
+}
+.nav-bar-content a:hover{
+    color: var(--amarillo);
+
+}
+.logotipo img{
+    width: 25rem;
+}
+@media(min-width: 650px){
+
+    .header-content{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around  ;
+        align-items: center;
+    }
+    .nav-bar-content{
+        margin-top: 0;
+    }
+}
+
+
+

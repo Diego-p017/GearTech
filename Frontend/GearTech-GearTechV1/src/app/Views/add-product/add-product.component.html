@@ -1,0 +1,108 @@
+<!-- <mat-card>
+    <h1>Agregar Producto</h1>
+    <p>
+        <mat-form-field>
+                <input matInput [(ngModel)]="productNew.productName" 
+                type="text" placeholder="Nombre Producto">
+        </mat-form-field>    
+    </p>
+    <p>
+            <mat-form-field matInput [(ngModel)]="productNew.productPrice" >
+                    <input type="text" placeholder="Precio">
+            </mat-form-field>    
+        </p>
+        <p>
+            <mat-form-field matInput [(ngModel)]="productNew.productStock" >
+                    <input type="Number" placeholder="Cantidad">
+            </mat-form-field>    
+        </p>
+        <p>
+            <mat-form-field matInput [(ngModel)]="productNew.idCategory" >
+                    <input type="Number" placeholder="Categoria">
+            </mat-form-field>    
+        </p>
+        
+            <input type="file" accept="image/png,image/jpeg" #foto required id="fotos" multiple >
+            
+       <br>
+        <p>
+            <app-loading-button [cargando]="cargando" texto="Guardar" (click)="add()"></app-loading-button>
+            <a routerLink="/home" mat-raised-button color="primary" style="margin-left: 10px">Volver</a>
+          </p>
+</mat-card> -->
+
+  <form [formGroup]="addForm" (ngSubmit)="addProduct(addForm.value)">
+    <h2 mat-dialog-title>Productos</h2>
+    <mat-dialog-content>
+        <div class="form-group row">
+            <mat-form-field>
+                <input matInput type="text" placeholder="Nombre Producto" formControlName="productName">
+            </mat-form-field>
+        </div>
+        <div class="form-group row">
+            <div class="col">
+                <mat-form-field>
+                    <input matInput type="number" placeholder="Precio Producto" formControlName="productPrice">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field>
+                    <input matInput type="number" placeholder="Cantidad Producto" formControlName="productStock">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col">
+                <!-- <mat-form-field>
+                    <input matInput type="text" placeholder="Imagen Producto" formControlName="imageProduct">                    
+                </mat-form-field> -->
+                <image-upload (uploadFinished)="onUploadFinish($event)"> </image-upload>
+            </div>
+            <div class="col">
+                <mat-form-field>
+                    <input matInput type="number" placeholder="categoria" formControlName="idCategory">
+                </mat-form-field>
+            </div>
+        </div>           
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button  mat-raised-button color="primary" [mat-dialog-close] type="submit">Guardar</button>
+        <button  mat-raised-button color="danger" (click)="cancel()">Cancelar</button>
+  
+    </mat-dialog-actions>
+  </form>
+
+
+
+<!-- 
+idProduct: number;
+productName: string;
+productPrice : number;
+productStock : number;
+imageProduct : string;
+idCategory : number; -->
+<!-- <table class="mat-elevation-z13" *ngIf="products" mat-table [dataSource]="products">
+    <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.productName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="descripcion">
+        <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.imageProduct}}</mat-cell>
+      </ng-container>
+    <ng-container matColumnDef="precio">
+        <mat-header-cell *matHeaderCellDef>Precio</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.productPrice | currency}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="eliminar">
+        <mat-header-cell *matHeaderCellDef>Eliminar</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button (click)="eliminar(element)" mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+ <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columnas;"></mat-row>
+ 
+</table> -->

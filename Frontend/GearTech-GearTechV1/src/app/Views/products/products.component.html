@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+  <mat-card *ngFor="let element of products">
+    <div class="product">
+      <div class="contenedor-imagen">
+        <img class="imgProduct" src="{{element.imageProduct}}" alt="">
+      </div>
+      <div style="display: inline-block; vertical-align: top">
+        <h2>{{element.productName}}</h2>
+        <h1>{{element.productPrice | currency}}</h1>
+        <button (click)="details(element.idProduct)" type="submit" mat-stroked-button color="warn">Ver detalles
+          <mat-icon>arrow_right</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-card>
+

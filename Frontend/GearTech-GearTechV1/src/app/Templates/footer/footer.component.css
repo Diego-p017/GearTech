@@ -1,0 +1,40 @@
+
+/* FOOTER */
+.footer{
+    background-color: var(--primario);
+    padding: 2rem;
+    bottom: 0;
+    width: 100%;
+}
+.footer-contenido{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-contenido p{
+    color: var(--amarillo);
+    font-size: 1.5rem!important;
+    margin: 0;
+}
+.footer-sticky{
+    position: fixed;
+}
+.navbar{
+    display: none;
+}
+@media (min-width:650px){
+    .navbar{
+        display: block;
+    }
+}
+.navbar a{
+    color: var(--blanco);
+    margin-right: 8rem;
+    font-weight: 700;
+}
+.navbar a:last-of-type{
+    margin: 0;
+}
+.navbar a:hover{
+    color: var(--amarillo);
+}

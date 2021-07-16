@@ -1,0 +1,31 @@
+<body>
+  <app-navbar></app-navbar>
+  <div class="form-login">
+    <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  
+      <mat-card class="box">
+        <mat-card-header>
+          <mat-card-title>Iniciar Sesion</mat-card-title>
+        </mat-card-header>
+    
+        <form class="example-form" [formGroup] = "loginForm" (ngSubmit)="onLogin(loginForm.value)">
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input matInput type="email" placeholder="correo electronico" formControlName="UserName">
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
+              <input matInput type="password" placeholder="Password" formControlName="Password">
+            </mat-form-field>
+          </mat-card-content>
+          <button mat-stroked-button color="primary" type="submit" class="btn-block">Acceder</button>
+        </form>
+        <div><a routerLink="/Register" style="margin-left: 4px;">Registrarse</a></div>
+        <!-- <div class="alert alert-danger" *ngIf="errorStatus"  value="Log In">
+          <p>{{errorMsj}}</p>
+       </div> -->
+      </mat-card>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</body>

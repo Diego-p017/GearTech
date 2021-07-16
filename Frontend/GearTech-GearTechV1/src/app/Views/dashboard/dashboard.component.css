@@ -1,0 +1,81 @@
+.hero {
+    height: 40rem;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.seccion-productos{
+    background-color: var(--fondo) ;
+    min-height: 50rem;
+}
+.nuestros-productos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (min-width:650px){
+    .nuestros-productos{
+        display: grid;
+        grid-template-columns: repeat( 4, 1fr);
+        gap: 4rem;
+        margin-top: 3rem;
+    }
+}
+
+.titulo-productos{
+    color: var(--blanco);
+    padding: 4rem 0;
+}
+
+.productos{
+    background-color: var(--amarillo);
+    padding: 4rem;
+    border-radius: 50%;
+    margin-bottom: 7rem;
+    width: 55%; 
+}
+@media (min-width:650px){
+    .productos{
+        width: 100%;
+    }
+}
+    
+.productos h3{
+    color: var(--blanco);
+    margin-top: 2rem;
+    font-size: 2rem;
+    
+}
+.centrar-texto{
+    text-align: center;
+}
+.hero-contacto{
+    background-image:url("../../../assets/hero-contacto.jpg");
+    height: 40rem;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.titulo-hero-contacto{
+    margin-bottom: 3rem;
+    color: var(--blanco);
+}
+@media (min-width:650px){
+    .titulo-hero-contacto h3{
+        font-size: 3rem;
+    }
+}
+.positronxx{
+    color: orange;
+    background: rgb(36, 36, 43);
+}

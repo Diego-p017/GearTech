@@ -1,0 +1,95 @@
+
+<html>
+        <app-navbar></app-navbar>
+
+    <body>
+        <app-carousel></app-carousel>
+        
+        <main class="seccion-productos">
+            <div class="titulo-productos centrar-texto">
+                <h2 class="tittle-h2">Nuestros Productos</h2>
+            </div>
+            <div class="nuestros-productos contenedor">
+                
+                <div class="productos">
+                    <img src="assets/Products/computadores.png" alt="">
+                    <h3 class="centrar-texto">Computadores</h3>                
+                </div>
+                <div class="productos">
+                    <img src="assets/Products/graficas.png" alt="">
+                    <h3 class="centrar-texto">T.Graficas</h3>                
+                </div>
+                <div class="productos">
+                    <img src="assets/Products/monitores.png" alt="">
+                    <h3 class="centrar-texto">Monitores</h3>                
+                </div>
+                <div class="productos">
+                    <img src="assets/Products/placabase.png" alt="">
+                    <h3 class="centrar-texto">Placas Base</h3>                
+                </div>
+            </div>
+        </main>
+        <section class="hero-contacto">
+            <div class="titulo-hero-contacto">
+                <h3>Registrate para conocer todo sobre nuestros productos</h3>
+            </div>
+            <div>
+                <a  mat-raised-button routerLink="/Register"  class="positronxx">Registrarse</a>
+            </div>
+        </section>
+        <app-footer></app-footer>
+    </body>
+</html>
+
+<!-- <mat-card>
+    <div>
+        <carousel
+        [autoplayInterval]="2000"
+        [objectFit]="'cover'"
+        [cellWidth]="'100%'"
+        [arrowsOutside]="true"
+        [autoplay]="true"
+        [dots]="true"
+        [loop]="true"
+        style="height: 40rem;">
+            <div class="carousel-cell" > 
+                <img src="assets/Carousel/hero1.jpg">
+            </div>
+            <div class="carousel-cell"> 
+                <img src="assets/Carousel/hero2.jpg">
+            </div>
+        </carousel>
+    </div>
+    
+    <mat-grid-list cols="4" rowHeight="1:1">
+        <mat-grid-tile>
+            <div class="productos">
+                <img src="assets/Products/computadores.png" >
+                <h3 class="centrar-texto">Computadores</h3>                
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="productos">
+                <img src="assets/Products/graficas.png">
+                <h3 class="centrar-texto">T.Graficas</h3>                
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="productos">
+                <img src="assets/Products/monitores.png" style=" height: 10rem;">
+                <h3 class="centrar-texto">Monitores</h3>                
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="productos">
+                <img src="assets/Products/placabase.png" style=" height: 12rem;">
+                <h3 class="centrar-texto">Placas Base</h3>                
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+  
+</mat-card> -->
+
+
+
+
