@@ -12,8 +12,8 @@
         </div>
       </nav>
       <div class="icon-navs">
-        <button mat-raised-button [matMenuTriggerFor]="menu">
-          <span matBadgeOverlap="false" matBadgePosition="below after">Carrito</span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="icons-nav">
+          <mat-icon>shopping_cart</mat-icon>
           <mat-menu #menu="matMenu" style="position: absolute!important;">
               <button mat-menu-item></button>
               <button mat-menu-item><strong>asdasdasd</strong></button>
@@ -22,7 +22,7 @@
                 Terminar compra</a> -->
           </mat-menu>
         </button>
-        <button mat-icon-button [matMenuTriggerFor]="menuUser">
+        <button mat-icon-button [matMenuTriggerFor]="menuUser" class="icons-nav">
           <mat-icon>person</mat-icon>
         </button>
         <mat-menu #menuUser="matMenu">

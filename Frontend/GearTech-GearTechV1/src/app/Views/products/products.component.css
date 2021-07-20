@@ -66,9 +66,10 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content:space-around;
   align-items: center;
 }
+
 .contenido-producto .nombre-producto{
   color: var(--blanco);
 }
@@ -85,7 +86,8 @@
   text-align: center!important;
 }
 .img-producto img{
- 
+
   height: 20rem;
 }
+
 

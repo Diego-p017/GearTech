@@ -55,8 +55,16 @@
         margin-top: 0;
     }
 }
-.icon-navs .menu-m{
-    z-index: 1!important;
+.icons-nav{
+    margin-right: 2.5rem;
 }
-
-
+.icons-nav:last-of-type{
+    margin: 0;
+}
+.icons-nav{
+    color: var(--blanco);
+    font-size: 4rem!important;
+}
+.material-icons{
+    font-size: 3rem!important;
+}
