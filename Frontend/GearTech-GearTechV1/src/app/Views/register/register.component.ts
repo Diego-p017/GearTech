@@ -49,8 +49,9 @@ export class RegisterComponent implements OnInit {
   }
   
   postRegisterForm(form:RegisterI){
+    form.role= "USER";
     this.apiReg.RegisterUser(form).subscribe(data =>{
-      form.role= "USER";
+      
       let dataResponse:ResponseI = data;       
       if(dataResponse.status == "Ok"){
        console.log(dataResponse.error)
@@ -64,6 +65,7 @@ export class RegisterComponent implements OnInit {
         this.errorStatus = true;
         this.errorMsj=dataResponse.response;
         this.openSnackBar(this.errorMsj,this.colorSnakBar);
+        this.router.navigate(['SignIn']);
       }
     })
   }
