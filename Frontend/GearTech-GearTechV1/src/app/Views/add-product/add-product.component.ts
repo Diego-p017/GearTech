@@ -22,6 +22,8 @@ export class AddProductComponent implements OnInit {
     productName: new FormControl(''),
     productPrice: new FormControl(''),
     productStock: new FormControl(''),
+    description: new FormControl(''),
+    specifications: new FormControl(''),
     imageProduct: new FormControl(''),
     idCategory: new FormControl('')
   //token: new FormControl('')

@@ -11,9 +11,11 @@
               </div>
               <div class="contenido-producto">
                   <h3 class="nombre-producto">{{element.productName}}</h3>
-                  <p class="descripcion-producto">Windows 10 procesadores Intel® Core™ Pantalla de hasta 240Hz refrigeración Inteligente, tecnología RangeBoost</p>
                   <p class="precio-producto">{{element.productPrice | currency}}</p>
               </div>
+              <button (click)="details(element.idProduct)" mat-stroked-button color="warn">Ver detalles
+                <mat-icon>arrow_right</mat-icon>
+              </button>
           </div>      
         </div>
       </main>

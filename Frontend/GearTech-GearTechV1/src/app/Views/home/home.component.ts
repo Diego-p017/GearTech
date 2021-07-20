@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   dialogRef: MatDialogRef<AddProductComponent,EditProductComponent>;
   image : any;
   products:ProductsI[] ;
-  public columnas = ['nombre', 'categoria','cantidad', 'precio','imagen','eliminar','editar'];
+  public columnas = ['nombre', 'categoria','cantidad', 'precio','descipcion','especificaciones','imagen','eliminar','editar'];
   
   constructor(
     public apiPro:ProductsService 

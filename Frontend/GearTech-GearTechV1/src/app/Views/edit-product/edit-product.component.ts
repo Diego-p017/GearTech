@@ -20,7 +20,9 @@ export class EditProductComponent implements OnInit {
     idProduct: new FormControl(0),
     productName: new FormControl(''),
     productPrice: new FormControl(''),
-    productStock: new FormControl(''),
+    productStock: new FormControl(''),    
+    description: new FormControl(''),
+    specifications: new FormControl(''),
     imageProduct: new FormControl(''),
     idCategory: new FormControl('')
   //token: new FormControl('')
@@ -48,6 +50,8 @@ export class EditProductComponent implements OnInit {
         'idProduct'   : this.dataProduct.idCategory,
         'productPrice': this.dataProduct.productPrice,
         'productStock': this.dataProduct.productStock,
+        'description': this.dataProduct.description,
+        'specifications': this.dataProduct.specifications,
         'imageProduct': this.dataProduct.imageProduct,
         'idCategory'  : this.dataProduct.idCategory
         //'token' : this.dataProduct.token
