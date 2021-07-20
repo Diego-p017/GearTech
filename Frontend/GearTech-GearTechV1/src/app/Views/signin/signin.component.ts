@@ -50,7 +50,7 @@ export class SignInComponent implements OnInit {
         this.colorSnakBar= 'mat-accent';
         this.errorMsj=dataResponse.response;
         this.openSnackBar(this.errorMsj,this.colorSnakBar);
-        this.router.navigate(['Home']);
+        this.router.navigate(['Products']);
       }else{
         this.colorSnakBar= 'mat-warn';
         this.errorStatus = true;
