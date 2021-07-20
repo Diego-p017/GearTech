@@ -1,8 +1,35 @@
-<p>product-detail works!</p>
-<div >
-    {{products.productName}}
+<div class="detalles-producto">
+    <h3>Detalles Producto</h3>
+    <div class="contendor-detalles">
+        <div class="img-producto">
+            <img src="{{products.imageProduct}}" alt="">
+        </div>
+        <div class="detalles">
+            <h3>{{products.productName}}</h3>
+            <div class="add-product">
+                <p class="precio-producto">Precio:{{products.productPrice | currency}}</p>
+                <button mat-button (click)="buyProduct()" class="positronxx">comprar</button>
+            </div>
+            <div class="especificaciones-producto">
+                <table class="table-especificaciones">
+                    <tr>
+                        <th>Descripcion</th>
+                        <th>Especificaciones</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{products.description}}
+                        </td>
+                        <td>
+                            {{products.specifications}}
+                        </td>
+                    </tr>                        
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="img-producto">
-    <img src="{{products.imageProduct}}" alt="">
-</div>
-<button mat-button (click)="buyProduct()">comprar</button>
+
+
+
+
