@@ -11,12 +11,12 @@
           <a routerLink="/Nosotros">Nosotros</a>
         </div>
       </nav>
-      <div>
+      <div class="icon-navs">
         <button mat-raised-button [matMenuTriggerFor]="menu">
-          <span  style="margin-right: 10px" matBadgeOverlap="false" matBadgePosition="below after">Carrito</span>
-          <mat-menu #menu="matMenu">
+          <span matBadgeOverlap="false" matBadgePosition="below after">Carrito</span>
+          <mat-menu #menu="matMenu" style="position: absolute!important;">
               <button mat-menu-item></button>
-              <button mat-menu-item><strong></strong></button>
+              <button mat-menu-item><strong>asdasdasd</strong></button>
               <!-- <a *ngIf="productos.length > 0" mat-menu-item routerLink="/terminar_compra">
                 <mat-icon>shopping_cart</mat-icon>
                 Terminar compra</a> -->
