@@ -1,0 +1,15 @@
+<p>purchase-cart works!</p>
+
+<table class="mat-elevation-z8 table" *ngIf="purchases" mat-table [dataSource]="purchases">
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>id</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.idPurchase}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="precio">
+        <mat-header-cell *matHeaderCellDef>Precio</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.purchasePrice}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnas;"></mat-row>
+</table>

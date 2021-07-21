@@ -30,12 +30,12 @@ export class ProductsComponent implements OnInit {
 eliminar(product){
 
 }
-details(idProduct){
+details(idProduct,productPrice){
   this.dialog.open(ProductDetailComponent,{
     data: idProduct
   }).afterClosed().subscribe(item => {
     this.ngOnInit();
   })
   console.log('deatilsProduct',this.dialogRef)
-}
+  }
 }

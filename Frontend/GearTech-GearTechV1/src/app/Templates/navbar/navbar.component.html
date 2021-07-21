@@ -12,15 +12,17 @@
         </div>
       </nav>
       <div class="icon-navs">
-        <button mat-icon-button [matMenuTriggerFor]="menu" class="icons-nav">
-          <mat-icon>shopping_cart</mat-icon>
-          <mat-menu #menu="matMenu" style="position: absolute!important;">
+        <button mat-icon-button class="icons-nav" (click)="cart()">
+          <mat-icon matBadge="{{purchases.length}}">shopping_cart</mat-icon>
+          <!--
+            [matMenuTriggerFor]="menu" 
+             <mat-menu #menu="matMenu" style="position: absolute!important;">
               <button mat-menu-item></button>
               <button mat-menu-item><strong>asdasdasd</strong></button>
-              <!-- <a *ngIf="productos.length > 0" mat-menu-item routerLink="/terminar_compra">
+              <a *ngIf="products.length > 0" mat-menu-item routerLink="/terminar_compra">
                 <mat-icon>shopping_cart</mat-icon>
-                Terminar compra</a> -->
-          </mat-menu>
+                Terminar compra</a>
+          </mat-menu> -->
         </button>
         <button mat-icon-button [matMenuTriggerFor]="menuUser" class="icons-nav">
           <mat-icon>person</mat-icon>

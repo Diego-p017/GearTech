@@ -8,7 +8,16 @@
             <h3>{{products.productName}}</h3>
             <div class="add-product">
                 <p class="precio-producto">Precio:{{products.productPrice | currency}}</p>
-                <button mat-button (click)="buyProduct()" class="positronxx">comprar</button>
+                <form [formGroup]="addForm" (ngSubmit)="buyProduct(addForm.value)">
+                    <!-- <mat-form-field>
+                        <input matInput type="number" placeholder="Catidad Producto" formControlName="purcharseAmount">
+                    </mat-form-field>
+                    <div *ngIf="mostrar"><mat-form-field>
+                        <input matInput type="number" placeholder="precio Producto" formControlName="idProduct">
+                    </mat-form-field></div> -->
+                    <button mat-button type="submit" class="positronxx">comprar</button>
+                </form>
+                
             </div>
             <div class="especificaciones-producto">
                 <table class="table-especificaciones">

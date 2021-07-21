@@ -1,6 +1,6 @@
-export interface PurchaseDetail{    
-    IdPurchase:number;
+export interface PurchaseDetailI{    
+    idPurchase:number;
     purchasePrice:number;
-    purcharseAmount: number;
-    idPoruct:number;
+    purchaseAmount: number;
+    idProduct:number;
 }
