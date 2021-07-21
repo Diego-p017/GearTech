@@ -1,35 +1,4 @@
-<!-- <mat-card>
-    <h1>Agregar Producto</h1>
-    <p>
-        <mat-form-field>
-                <input matInput [(ngModel)]="productNew.productName" 
-                type="text" placeholder="Nombre Producto">
-        </mat-form-field>    
-    </p>
-    <p>
-            <mat-form-field matInput [(ngModel)]="productNew.productPrice" >
-                    <input type="text" placeholder="Precio">
-            </mat-form-field>    
-        </p>
-        <p>
-            <mat-form-field matInput [(ngModel)]="productNew.productStock" >
-                    <input type="Number" placeholder="Cantidad">
-            </mat-form-field>    
-        </p>
-        <p>
-            <mat-form-field matInput [(ngModel)]="productNew.idCategory" >
-                    <input type="Number" placeholder="Categoria">
-            </mat-form-field>    
-        </p>
-        
-            <input type="file" accept="image/png,image/jpeg" #foto required id="fotos" multiple >
-            
-       <br>
-        <p>
-            <app-loading-button [cargando]="cargando" texto="Guardar" (click)="add()"></app-loading-button>
-            <a routerLink="/home" mat-raised-button color="primary" style="margin-left: 10px">Volver</a>
-          </p>
-</mat-card> -->
+
 
   <form [formGroup]="addForm" (ngSubmit)="addProduct(addForm.value)">
     <h2 mat-dialog-title>Productos</h2>

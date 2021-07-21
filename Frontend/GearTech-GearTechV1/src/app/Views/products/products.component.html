@@ -11,10 +11,10 @@
               </div>
               <div class="contenido-producto">
                   <h3 class="nombre-producto">{{element.productName}}</h3>
-                  <p class="precio-producto">{{element.productPrice | currency}}</p>
+                  <p class="precio-producto">{{element.idProduct | currency}}</p>
               </div>
               <div class="detalles">
-                <button (click)="details(element.idProduct)" mat-stroked-button color="warn" class="positronxx">Ver detalles
+                <button (click)="details(element.idProduct,element.productPrice)" mat-stroked-button color="warn" class="positronxx">Ver detalles
                     <mat-icon>arrow_right</mat-icon>
                 </button>
               </div>

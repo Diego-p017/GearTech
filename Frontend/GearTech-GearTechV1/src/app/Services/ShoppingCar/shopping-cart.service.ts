@@ -11,23 +11,23 @@ export class ShoppingCartService {
   url:string = "https://localhost:44346/api/"
 
   constructor(private http: HttpClient) { }
-  getSingleProduct(idProduct):Observable<ShoppingCartI>{
-    let direccion = this.url + "Products/" + idProduct;
+  getSingleShoppingCart(idShoppingCart):Observable<ShoppingCartI>{
+    let direccion = this.url + "ShoppingCarts/" + idShoppingCart;
     return this.http.get<ShoppingCartI>(direccion); 
   }
 
-  getAllProduct():Observable<ShoppingCartI[]>{
-    let direccion = this.url + "Products";
+  getAllShoppingCart():Observable<ShoppingCartI[]>{
+    let direccion = this.url + "ShoppingCarts";
     return this.http.get<ShoppingCartI[]>(direccion);
   }
 
-  AddProduct(form:ShoppingCartI):Observable<ResponseI>{
-    let direccion = this.url + "Products";
+  AddShoppingCart(form:ShoppingCartI):Observable<ResponseI>{
+    let direccion = this.url + "ShoppingCarts";
     return this.http.post<ResponseI>(direccion,form);
   }
 
-  deleteProduct(idProduct){
-    let direccion = this.url + "Products/"+ idProduct;
+  deleteShoppingCart(idShoppingCart){
+    let direccion = this.url + "ShoppingCarts/"+ idShoppingCart;
     return this.http.delete(direccion);
   }
   
