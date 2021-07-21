@@ -389,11 +389,14 @@ namespace WebApiGear.Migrations
                     b.Property<int>("IdProduct")
                         .HasColumnType("int");
 
+                    b.Property<bool>("LogicalErause")
+                        .HasColumnType("bit");
+
                     b.Property<int>("PurchaseAmount")
                         .HasColumnType("int");
 
-                    b.Property<int>("PurchasePrice")
-                        .HasColumnType("int");
+                    b.Property<decimal>("PurchasePrice")
+                        .HasColumnType("decimal(18, 0)");
 
                     b.HasKey("IdPurchase");
 

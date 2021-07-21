@@ -34,6 +34,7 @@ details(idProduct,productPrice){
   this.dialog.open(ProductDetailComponent,{
     data: idProduct
   }).afterClosed().subscribe(item => {
+    //this.router.navigate(['Products']);
     this.ngOnInit();
   })
   console.log('deatilsProduct',this.dialogRef)

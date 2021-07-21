@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Backend",
-    "\\Backend\\WebApiGear"
+    "\\Backend\\WebApiGear",
+    "\\Backend\\WebApiGear\\Models"
   ],
-  "SelectedNode": "\\Backend\\WebApiGear\\WebApiGear.sln",
+  "SelectedNode": "\\Backend\\WebApiGear\\Models\\ProductsModel.cs",
   "PreviewInSolutionExplorer": false
 }

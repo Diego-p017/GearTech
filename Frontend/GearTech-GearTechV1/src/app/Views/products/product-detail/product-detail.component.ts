@@ -43,6 +43,7 @@ export class ProductDetailComponent implements OnInit {
     private apiProducts: ProductsService,
     private apiPurchase: PurchaseDetailService,
     public dialogRef: MatDialogRef<ProductDetailComponent>,
+    private router:Router,
     public dialog:MatDialog,
     @Inject(MAT_DIALOG_DATA)
     public data: ProductsI,
@@ -67,12 +68,20 @@ export class ProductDetailComponent implements OnInit {
     
     this.apiPurchase.AddCart(form).subscribe(data => {
         console.log('Addcart',data)
-        this.dialog.open(PurchaseCartComponent,{
-          data: data
-        }).afterClosed().subscribe(item => {
-          this.ngOnInit();
-        })
-        console.log('deatilsProduct',this.dialogRef)        
-    })
+    //     this.dialog.open(PurchaseCartComponent,{
+    //       data: data
+    //     }).afterClosed().subscribe(item => {
+    //       this.ngOnInit();
+    //     })
+    //     console.log('deatilsProduct',this.dialogRef)      
+     this.dialogRef.close();      
+     })
+  }
+  viewCart(){
+    let dialogRef = this.dialog.open(PurchaseCartComponent);
+
+    dialogRef.afterClosed().subscribe(result =>{
+      console.log('Dialog result: ${result}');
+    });
   }
 }

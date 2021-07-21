@@ -43,6 +43,21 @@ export class SignInComponent implements OnInit {
   onLogin(form: LoginI){
     this.apiAuth.LoginByEmail(form).subscribe(data =>{
       console.log(data)
+
+      let jwt = data.token;      
+      let jwtData = jwt.split('.')[1]
+      let decodedJwtJsonData = window.atob(jwtData)
+      let decodedJwtData = JSON.parse(decodedJwtJsonData)
+
+      let isAdmin = decodedJwtData.USER
+
+      console.log('jwtData: ' + jwtData)
+      console.log('decodedJwtJsonData: ' + decodedJwtJsonData)
+      console.log('decodedJwtData: ' + decodedJwtData)
+      console.log('Is admin: ' + isAdmin)
+
+
+
       let dataResponse:ResponseI = data;       
       if(dataResponse.status == "Ok"){
        console.log(dataResponse.error)

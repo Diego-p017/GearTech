@@ -33,5 +33,5 @@ namespace WebApiGear.Context
 
     }
 }
-//add-migration
+// 
 //dotnet ef database update

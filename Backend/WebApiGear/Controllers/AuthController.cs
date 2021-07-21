@@ -56,7 +56,7 @@ namespace WebApiGear.Controllers
 
 
                             var appUser = _userManager.Users.SingleOrDefault(u => u.UserName == model.UserName);
-                            var token = GenerateJwtToken(model.UserName, appUser);
+                            
                       
                             ViewModelUser user = new ViewModelUser()
                             {
@@ -71,7 +71,9 @@ namespace WebApiGear.Controllers
                                 Role = roles[0]
                             };
 
-                            return new JsonResult(new ViewModelResponse<ViewModelUser>() { Error = false, Response = "Has iniciado sesión satisfactoriamente", Object = user, Token = token, Status = "Ok" });
+                        var token = GenerateJwtToken(model.UserName, appUser, user);
+
+                        return new JsonResult(new ViewModelResponse<ViewModelUser>() { Error = false, Response = "Has iniciado sesión satisfactoriamente", Object = user, Token = token, Status = "Ok" });
                         }
                         else
                         {
@@ -89,13 +91,14 @@ namespace WebApiGear.Controllers
             }
         }
         [NonAction]
-        private object GenerateJwtToken(string email, IdentityUser appUser)
+        private object GenerateJwtToken(string email, IdentityUser appUser , ViewModelUser user)
         {
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier, appUser.Id)
+                new Claim(ClaimTypes.NameIdentifier, appUser.Id),
+                new Claim(ClaimTypes.Role, user.Role)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtKey"]));

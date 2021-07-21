@@ -12,13 +12,14 @@ namespace WebApiGear.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdPurchase { get; set; }
-        //[column(typename = "decimal(7, 2)")]
-        [Required]
+        [Column(TypeName = "decimal(18, 0)")]
         public int PurchasePrice { get; set; }
         [Required]
         public int PurchaseAmount { get; set; }
         [Required, ForeignKey(nameof(ProductName))]
         public int IdProduct { get; set; }
+        
+        public Boolean LogicalErause { get; set; }
 
         public virtual ProductsModel ProductName { get; set; }
     }

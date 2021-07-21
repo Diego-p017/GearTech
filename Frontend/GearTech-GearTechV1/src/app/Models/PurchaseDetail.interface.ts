@@ -3,4 +3,7 @@ export interface PurchaseDetailI{
     purchasePrice:number;
     purchaseAmount: number;
     idProduct:number;
+    productName: [
+        productName : string
+    ];
 }

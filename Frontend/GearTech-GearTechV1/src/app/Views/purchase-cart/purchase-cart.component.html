@@ -5,7 +5,7 @@
             <table class="mat-elevation-z8 table" *ngIf="purchases" mat-table [dataSource]="purchases">
                 <ng-container matColumnDef="nombre">
                     <mat-header-cell *matHeaderCellDef>Producto</mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.idPurchase}}</mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element.productName.productName}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="cantidad">
                     <mat-header-cell *matHeaderCellDef>Cantidad</mat-header-cell>
@@ -15,20 +15,32 @@
                     <mat-header-cell *matHeaderCellDef>Precio</mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.purchasePrice}}</mat-cell>
                 </ng-container>
+                <ng-container matColumnDef="eliminar">
+                    <mat-header-cell *matHeaderCellDef>Eliminar</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <button (click)="delete(element)" mat-icon-button color="warn">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </mat-cell>  
+                  </ng-container>  
 
                 <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
                 <mat-row *matRowDef="let row; columns: columnas;"></mat-row>
+               
             </table>
         </div>
         <div class="detalles-carrito">
             <h3>Detalles Compra</h3>
             <div class="list-compra">
                 <ul>
-                    <li><span>SubTotal:</span>3550000</li>
+                    
+                    <li><span>SubTotal:</span>{{ total | currency}}</li>
                     <li><span>Envio:</span>Contra Entrega</li>
                 </ul>
-                <h3><span>Total:</span>3550000</h3>
+                <h3><span>Total:</span>{{ total | currency }}</h3>
             </div>
+            <button mat-button (click)="buy()" [mat-dialog-close]>comprar</button>
+            <button mat-button [mat-dialog-close] >cancelar </button>
         </div>
     </div>
     <p class="aviso-compra">--Toda Compra Realizada se pagara por medio de contra entrega--</p>
