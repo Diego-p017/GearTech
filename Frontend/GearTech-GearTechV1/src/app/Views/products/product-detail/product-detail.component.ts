@@ -65,7 +65,7 @@ export class ProductDetailComponent implements OnInit {
     // form.purchasePrice = this.total;
     //form.purchasePrice = this.product.productPrice; 
     
-     this.apiPurchase.AddCart(form).subscribe(data => {
+    this.apiPurchase.AddCart(form).subscribe(data => {
         console.log('Addcart',data)
         this.dialog.open(PurchaseCartComponent,{
           data: data
@@ -73,6 +73,6 @@ export class ProductDetailComponent implements OnInit {
           this.ngOnInit();
         })
         console.log('deatilsProduct',this.dialogRef)        
-     })
+    })
   }
 }
