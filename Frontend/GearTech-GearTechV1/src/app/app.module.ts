@@ -28,7 +28,6 @@ import { CarouselComponent } from './Templates/carousel/carousel.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShoppingCarComponent } from './Views/shopping-car/shopping-car.component';
 import { PurchaseCartComponent } from './Views/purchase-cart/purchase-cart.component';
-import { BuyComponent } from './Views/buy/buy.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +43,7 @@ import { BuyComponent } from './Views/buy/buy.component';
     ,EditProductComponent
     ,ProductDetailComponent
     ,NosotrosComponent
-    ,CarouselComponent, ShoppingCarComponent, PurchaseCartComponent, BuyComponent
+    ,CarouselComponent, ShoppingCarComponent, PurchaseCartComponent
   ],
   imports: [
     AngularMaterialModule

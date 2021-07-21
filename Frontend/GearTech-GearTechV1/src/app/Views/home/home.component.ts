@@ -82,8 +82,5 @@ export class HomeComponent implements OnInit {
     })
     console.log('editProduct',this.dialogRef)
 }
-logout(){
-  localStorage.removeItem("token");
-  this.router.navigate(['Products']);
-}
+
 }

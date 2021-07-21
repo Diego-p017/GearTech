@@ -26,8 +26,8 @@ export class PurchaseDetailService {
     return this.http.post<ResponseI>(direccion,form);
   }
 
-  deleteCart(idPurchase){
-    let direccion = this.url + "PurchaseDetail/"+ idPurchase;
+  deleteCart(idProduct){
+    let direccion = this.url + "PurchaseDetail/"+ idProduct;
     return this.http.delete(direccion);
   }
 }

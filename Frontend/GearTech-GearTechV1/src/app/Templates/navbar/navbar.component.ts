@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { PurchaseDetailI } from 'src/app/Models/PurchaseDetail.interface';
 import { PurchaseDetailService } from 'src/app/Services/Purchase/purchase-detail.service';
@@ -17,7 +16,6 @@ export class NavbarComponent implements OnInit {
   constructor(
     public apiCart:PurchaseDetailService
     ,public dialog:MatDialog
-    ,private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -34,8 +32,5 @@ export class NavbarComponent implements OnInit {
       console.log('Dialog result: ${result}');
     });
   }
-  logout(){
-    localStorage.removeItem("token");
-    this.router.navigate(['Products']);
-  }
+
 }
