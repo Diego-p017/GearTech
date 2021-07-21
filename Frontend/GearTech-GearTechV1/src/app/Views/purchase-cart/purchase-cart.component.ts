@@ -10,7 +10,7 @@ import { PurchaseDetailService } from 'src/app/Services/Purchase/purchase-detail
 })
 export class PurchaseCartComponent implements OnInit {
   purchases:PurchaseDetailI[];
-  public columnas = ['id','precio'];
+  public columnas = ['nombre','cantidad','precio',];
 
   constructor(
     public apiCart:PurchaseDetailService

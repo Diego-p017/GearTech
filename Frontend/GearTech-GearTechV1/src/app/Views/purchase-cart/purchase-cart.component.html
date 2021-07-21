@@ -1,15 +1,36 @@
-<p>purchase-cart works!</p>
+<div class="carrito-compra">
+    <h3>Carrito de compra</h3>
+    <div class="contenido-compra">
+        <div class="tabla-compra">
+            <table class="mat-elevation-z8 table" *ngIf="purchases" mat-table [dataSource]="purchases">
+                <ng-container matColumnDef="nombre">
+                    <mat-header-cell *matHeaderCellDef>Producto</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.idPurchase}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="cantidad">
+                    <mat-header-cell *matHeaderCellDef>Cantidad</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.purchaseAmount}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="precio">
+                    <mat-header-cell *matHeaderCellDef>Precio</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.purchasePrice}}</mat-cell>
+                </ng-container>
 
-<table class="mat-elevation-z8 table" *ngIf="purchases" mat-table [dataSource]="purchases">
-    <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef>id</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.idPurchase}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="precio">
-        <mat-header-cell *matHeaderCellDef>Precio</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.purchasePrice}}</mat-cell>
-    </ng-container>
+                <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: columnas;"></mat-row>
+            </table>
+        </div>
+        <div class="detalles-carrito">
+            <h3>Detalles Compra</h3>
+            <div class="list-compra">
+                <ul>
+                    <li><span>SubTotal:</span>3550000</li>
+                    <li><span>Envio:</span>Contra Entrega</li>
+                </ul>
+                <h3><span>Total:</span>3550000</h3>
+            </div>
+        </div>
+    </div>
+    <p class="aviso-compra">--Toda Compra Realizada se pagara por medio de contra entrega--</p>
+</div>
 
-    <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: columnas;"></mat-row>
-</table>
