@@ -8,6 +8,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { EditProductComponent } from '../edit-product/edit-product.component';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class HomeComponent implements OnInit {
   dialogRef: MatDialogRef<AddProductComponent,EditProductComponent>;
+  panelOpenState = false;
   image : any;
   dataSource : any;
   products:ProductsI[] ;
@@ -26,13 +29,27 @@ export class HomeComponent implements OnInit {
     ,private router:Router
     ,public dialog:MatDialog
     ,private sanitizer: DomSanitizer
+    ,private observer: BreakpointObserver
   ) { }
   
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSidenav)
+  sidenav!: MatSidenav;
+
+
 
   ngAfterViewInit() {
-      this.dataSource.paginator = this.paginator;
-    }  
+    this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
+      if (res.matches) {
+        this.sidenav.mode = 'over';
+        this.sidenav.close();
+      } else {
+        this.sidenav.mode = 'side';
+        this.sidenav.open();
+      }
+    });
+  } 
   ngOnInit(): void {
     this.apiPro.getAllProducts().subscribe(pro =>{
      // this.image = pro[0].imageProduct;

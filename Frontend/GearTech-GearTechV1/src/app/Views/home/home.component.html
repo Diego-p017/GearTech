@@ -1,126 +1,111 @@
 
-<app-navbar></app-navbar>
+  <mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    GEARTECH | Administración
+  </mat-toolbar> 
 
-  
-  <div class="contenedor">
-    <h2 >Administracion de la Pagina</h2>
-    <mat-tab-group mat-align-tabs="start">
-      <mat-tab label="Productos">
-        <div>
-          <button mat-fab color="primary" (click)="openAdd()" aria-label="Example icon button with a delete icon">
-            <mat-icon>bookmark_add</mat-icon>
-          </button>
-        </div>
-        <table class="mat-elevation-z8 table" *ngIf="products" mat-table [dataSource]="products">
-          <ng-container matColumnDef="nombre">
-              <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.productName}}</mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="categoria">
-              <mat-header-cell *matHeaderCellDef>categoria</mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.category.categoryName}} </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="cantidad">
-              <mat-header-cell *matHeaderCellDef>cantidad</mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.productStock}} </mat-cell>
-            </ng-container>
-          <ng-container matColumnDef="precio">
-              <mat-header-cell *matHeaderCellDef>Precio</mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.productPrice | currency}}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="descipcion">
-              <mat-header-cell *matHeaderCellDef>descipcion</mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.description}}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="especificaciones">
-              <mat-header-cell *matHeaderCellDef>especificaciones</mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.specifications}}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="imagen">
-              <mat-header-cell *matHeaderCellDef>Imagen</mat-header-cell>
-              <mat-cell *matCellDef="let element">
-                <img src="{{element.imageProduct}}" class="" style="width:50%">
-                
-              </mat-cell>
-            </ng-container> 
-            <ng-container matColumnDef="eliminar">
-              <mat-header-cell *matHeaderCellDef>Eliminar</mat-header-cell>
-              <mat-cell *matCellDef="let element">
-                <button (click)="delete(element)" mat-icon-button color="warn">
-                  <mat-icon>delete</mat-icon>
-                </button>
-              </mat-cell>  
-            </ng-container>  
-            <ng-container matColumnDef="editar">
-              <mat-header-cell *matHeaderCellDef>Editar</mat-header-cell>
-              <mat-cell *matCellDef="let element">
-                <button (click)="edit(element.idProduct)" mat-icon-button color="primary">
-                  <mat-icon>edit</mat-icon>  
-                </button>
-              </mat-cell>  
-            </ng-container>  
-            <!-- </ng-container matColumnDef="editar">
-                <mat-header-cell *matHeaderCellDef>Editar</mat-header-cell>
-              <mat-cell *matCellDef="let element">
-                <button (click)="edit(element.idProduct)" mat-icon-button color="warn">
-                  <mat-icon>delete</mat-icon>  
-                </button>
-              </mat-cell>      
-              <ng-container>  -->      
-      
-            
-        <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: columnas;"></mat-row>
-        
-      </table>
-      </mat-tab>
-      <mat-tab label="">Content 2</mat-tab>
-      <mat-tab label="Third">Content 3</mat-tab>
-    </mat-tab-group>
+  <mat-sidenav-container>   
+      <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8" >
 
-    
-   
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> 
-  </div>
-  
+      <img class="avatar " src="assets/LogoGearTech.png" />
+      <p class="designation">Administrador</p>
 
+        <mat-divider></mat-divider>
+      <button routerLink="/Dashboard" mat-button class="menu-button">
+          <mat-icon>home</mat-icon>
+          <span>Inicio</span>
+      </button>
 
-<!-- <table class="mat-elevation-z13" *ngIf="products" mat-table [dataSource]="products">
-  <ng-container matColumnDef="nombre">
-      <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
-  <mat-cell *matCellDef="let element"> {{element.productName}}</mat-cell>
-  </ng-container>
-  <ng-container matColumnDef="descripcion">
-      <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.imageProduct}}</mat-cell>
-    </ng-container>
-  <ng-container matColumnDef="precio">
-      <mat-header-cell *matHeaderCellDef>Precio</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.productPrice | currency}}</mat-cell>
-    </ng-container>
-     <ng-container matColumnDef="imagen">
-      <mat-header-cell *matHeaderCellDef>Imagen</mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <image-upload (uploadFinished)="onUploadFinish($event)">
-      </image-upload>
-      </mat-cell>
-    </ng-container> 
-    <ng-container matColumnDef="acciones">
-      <mat-header-cell *matHeaderCellDef>Eliminar</mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <button (click)="eliminar(element)" mat-icon-button color="warn">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </mat-cell>
-    </ng-container>
+      <mat-divider></mat-divider>
 
-    
-<mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
-<mat-row *matRowDef="let row; columns: columnas;"></mat-row>
+      <button mat-button class="menu-button">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Cerrar sesion</span>
+      </button>
 
-</table> -->
-
-        
-
-
-
+      </mat-sidenav>
+      <mat-sidenav-content>
+          <div class="content mat-elevation-z8">
+            <mat-tab-group mat-align-tabs="center">
+              <mat-tab label="Gestion Productos">
+                <mat-accordion>
+                  <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Agregar Productos
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <button mat-raised-button color="warn" (click)="openAdd()" aria-label="Example icon button with a delete icon">Agregar</button>
+                    </mat-expansion-panel>
+                  <mat-expansion-panel (opened)="panelOpenState = true"
+                                       (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Productos Agregados
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <table class="mat-elevation-z8 table" *ngIf="products" mat-table [dataSource]="products">
+                      <ng-container matColumnDef="nombre">
+                        <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.productName}}</mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="categoria">
+                        <mat-header-cell *matHeaderCellDef>categoria</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.category.categoryName}} </mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="cantidad">
+                        <mat-header-cell *matHeaderCellDef>cantidad</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.productStock}} </mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="precio">
+                        <mat-header-cell *matHeaderCellDef>Precio</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.productPrice | currency}}</mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="descipcion">
+                        <mat-header-cell *matHeaderCellDef>descipcion</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.description}}</mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="especificaciones">
+                        <mat-header-cell *matHeaderCellDef>especificaciones</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.specifications}}</mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="imagen">
+                        <mat-header-cell *matHeaderCellDef>Imagen</mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          <img src="{{element.imageProduct}}" class="" style="width:50%">
+                        </mat-cell>
+                      </ng-container> 
+                      <ng-container matColumnDef="eliminar">
+                        <mat-header-cell *matHeaderCellDef>Eliminar</mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          <button (click)="delete(element)" mat-icon-button color="warn">
+                            <mat-icon>delete</mat-icon>
+                          </button>
+                        </mat-cell>  
+                      </ng-container>  
+                      <ng-container matColumnDef="editar">
+                        <mat-header-cell *matHeaderCellDef>Editar</mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          <button (click)="edit(element.idProduct)" mat-icon-button color="primary">
+                            <mat-icon>edit</mat-icon>  
+                          </button>
+                        </mat-cell>  
+                      </ng-container>       
+                      <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+                      <mat-row *matRowDef="let row; columns: columnas;"></mat-row>
+                    </table>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </mat-tab>
+              <mat-tab label="Pedidos">Content 2</mat-tab>
+            </mat-tab-group>
+          </div>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
