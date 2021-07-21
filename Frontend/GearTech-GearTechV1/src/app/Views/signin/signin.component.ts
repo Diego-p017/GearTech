@@ -5,6 +5,7 @@ import { LoginI } from 'src/app/Models/Login.interface';
 import { ResponseI } from 'src/app/Models/Response.interface';
 import { AuthService } from 'src/app/Services/Authentication/auth.service';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-signin',
@@ -44,20 +45,11 @@ export class SignInComponent implements OnInit {
     this.apiAuth.LoginByEmail(form).subscribe(data =>{
       console.log(data)
 
-      let jwt = data.token;      
-      let jwtData = jwt.split('.')[1]
-      let decodedJwtJsonData = window.atob(jwtData)
-      let decodedJwtData = JSON.parse(decodedJwtJsonData)
-
-      let isAdmin = decodedJwtData.USER
-
-      console.log('jwtData: ' + jwtData)
-      console.log('decodedJwtJsonData: ' + decodedJwtJsonData)
-      console.log('decodedJwtData: ' + decodedJwtData)
-      console.log('Is admin: ' + isAdmin)
-
-
-
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(data.token);
+      // let isAdmin = decodedToken.Email
+      // console.log('isAdmin ' ,decodedToken.Email)
+      console.log('isAdmin ' ,decodedToken.email)
       let dataResponse:ResponseI = data;       
       if(dataResponse.status == "Ok"){
        console.log(dataResponse.error)
@@ -65,7 +57,13 @@ export class SignInComponent implements OnInit {
         this.colorSnakBar= 'mat-accent';
         this.errorMsj=dataResponse.response;
         this.openSnackBar(this.errorMsj,this.colorSnakBar);
-        this.router.navigate(['Products']);
+       // this.router.navigate(['Products']);
+       
+        if(decodedToken.email === "ADMIN"){
+          this.router.navigate(['Home']);
+        }else{
+          this.router.navigate(['Products']);
+        }
       }else{
         this.colorSnakBar= 'mat-warn';
         this.errorStatus = true;

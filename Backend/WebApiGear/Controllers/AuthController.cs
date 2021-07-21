@@ -96,9 +96,9 @@ namespace WebApiGear.Controllers
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier, appUser.Id),
-                new Claim(ClaimTypes.Role, user.Role)
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),                
+                new Claim(JwtRegisteredClaimNames.Email, user.Role),
+                new Claim(ClaimTypes.NameIdentifier, appUser.Id)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtKey"]));
