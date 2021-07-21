@@ -12,8 +12,9 @@ namespace WebApiGear.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdPurchase { get; set; }
-        [Column(TypeName = "decimal(7, 2)")]
-        public decimal PurchasePrice { get; set; }
+        //[column(typename = "decimal(7, 2)")]
+        [Required]
+        public int PurchasePrice { get; set; }
         [Required]
         public int PurchaseAmount { get; set; }
         [Required, ForeignKey(nameof(ProductName))]

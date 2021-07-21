@@ -64,7 +64,7 @@ namespace WebApiGear.Controllers
                 _dbContext.purchaseDetails.Add(data);
                 _dbContext.SaveChanges();
             }
-            catch
+            catch (Exception e)
             {
                 throw;
             }
