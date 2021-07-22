@@ -73,3 +73,9 @@
     min-width: 50rem!important;
     min-height: 50rem!important;
 } */
+.positronxx{
+    margin-right: 2rem;
+}
+.positronxx:last-of-type{
+    margin-right: 0;
+}
